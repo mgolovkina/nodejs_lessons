@@ -1,4 +1,5 @@
 var chalk = require('chalk');
+var beep = require('beepbeep');
 
 setInterval(function(){
 
@@ -30,6 +31,7 @@ setInterval(function(){
 		default: 
 			text = chalk.white(text);
 	}
+	beep();
 	console.log(text);
 
-}, 1000);
+}, 2000);
