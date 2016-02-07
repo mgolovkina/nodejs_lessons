@@ -1,0 +1,29 @@
+<h2>{{title}}</h2>
+{{#if error}}<h3>{{error}}</h3>{{/if}}
+
+<form method="POST">
+	<p>
+		<input type="radio" name="source" value="habrahabr.ru" {{h_checked}}> Хабрахабр
+		<input type="radio" name="source" value="megamozg.ru" {{m_checked}}> Мегамозг
+		<input type="radio" name="source" value="geektimes.ru" {{g_checked}}> Geektimes
+	</p>
+	<p>
+		Количество новостей
+		<input type="number" name="news_number" value="{{num}}" min="1" style="width: 40px">
+	</p>
+	<p>
+		<input type="submit" value="Запросить новости">
+	</p>
+</form>
+
+<div>
+	{{#each news}}
+		<div style="margin: 40px">
+			<h3>
+				<a href="{{this.link}}">{{this.title}}</a>
+			</h3>
+			<p><em>Дата: {{this.date}}</em></p>
+			<p>{{this.content}}</p>
+		</div>
+	{{/each}}
+</div>
